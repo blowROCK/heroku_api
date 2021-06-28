@@ -16,85 +16,47 @@ app.get("/", (req, res) => {
 });
 
 app.get("/test", (req, res) => {
-	res.send([
-		{
-			"id": "title",
-			"type": "text",
-			"text": "Snippet Demo 🍭",
-			"style": "h1"
-		},
-		{
-			"id": "promotion",
-			"type": "key-value",
-			"items": [
+	res.send({
+		"snippet": {
+			"version": "v0",
+			"layout": [
 				{
-					"key": "Mileage",
-					"value": "213 points"
+					"type":"text",
+					"id":"header-text",
+					"text":"lorem ipsum",
+					"align":"left",
+					"style":"header"
 				},
 				{
-					"key": "Trip",
-					"value": "Roadtrip to Space"
+					"type":"divider",
+					"id":"divider-1",
+					"size":"thin"
 				},
 				{
-					"key": "Submitted at",
-					"value": "6:00PM, 2019/01/12"
+					"type":"spacer",
+					"id":"spacer-1",
+					"size":"xs"
+				},
+				{
+					"type":"button",
+					"id":"submit-button",
+					"label":"Submit",
+					"action":{
+						"type":"submit"
+					},
+					"style":"primary"
+				},
+				{
+					"type":"input",
+					"id":"text-input",
+					"label":"text",
+					"placeholder":"hi",
+					"value":"hello"
 				}
-			]
-		},
-		{
-			"id": "promotion-image",
-			"type": "image",
-			"url": "http://cdn.channel.io/assets/snippet/snippet-img-demo.png"
-		},
-		{
-			"id": "subtitle",
-			"type": "text",
-			"text": "Related Items",
-			"style": "h2"
-		},
-		{
-			"id": "related-list",
-			"type": "list",
-			"items": [
-				{
-					"id": "related-list-trip-01",
-					"title": "Couple trip to the Milky Stardust Fanatasy",
-					"description": "$5million ∙ 2seats ∙ 2050-12-25",
-					"image": "http://cdn.channel.io/assets/snippet/snippet-demo-list-1.png",
-					"action": {
-						"type": "url",
-						"url": "https://channel.io"
-					}
-				},
-				{
-					"id": "related-list-trip-02",
-					"title": "Dance on the Moon",
-					"description": "$17,980 ∙ Open in Summer",
-					"image": "http://cdn.channel.io/assets/snippet/snippet-demo-list-2.png",
-					"action": {
-						"type": "url",
-						"url": "https://channel.io"
-					}
-				}
-			]
-		},
-		{
-			"id": "divider",
-			"type": "divider"
-		},
-		{
-			"id": "mileage-input",
-			"type": "input",
-			"label": "Reset Mileage",
-			"placeholder": "Please type numbers"
-		},
-		{
-			"id": "submit-button",
-			"type": "button",
-			"label": "Submit",
-			"action": {
-				"type": "submit"
+			],
+			"params": {
+				"customerKey": "channelIO"
 			}
-		}
-	]);
+		},
+	})
 });
