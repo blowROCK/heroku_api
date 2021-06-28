@@ -17,7 +17,7 @@
     "url": "https://github.com/blowROCK/heroku_api/issues"
   },
   "homepage": "https://github.com/blowROCK/heroku_api#readme",
-  "devDependencies": {
+  "dependencies": {
     "express": "^4.17.1"
   },
   "engines": {
