@@ -3,6 +3,14 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;
 
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
+});
+
+app.listen(port, () => console.log('api test Server listening on port '+ port + '!\n'))
+
 app.get("/", (req, res) => {
 	res.send('Hello World!');
 });
@@ -89,8 +97,4 @@ app.get("/test", (req, res) => {
 			}
 		}
 	]);
-});
-
-app.listen(port, () => {
-	console.log(`MY PORT ${port}`)
 });
